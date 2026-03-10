@@ -27,32 +27,32 @@ jobs:
         timeout: 60
         max-score: 9
 
-    - name: test2librariesimport
-      id: test2librariesimport
+    - name: test2libraryimportconfirmation
+      id: test2libraryimportconfirmation
       uses: classroom-resources/autograding-command-grader@v1
       with:
-        test-name: "Test 2: Libraries Import"
+        test-name: "Test 2: Library Import Confirmation"
         command: jupyter nbconvert --to notebook --execute ITAI1378 - Assignment 1.ipynb --stdout
         timeout: 60
-        max-score: 9
+        max-score: 18
 
-    - name: test3imagedownload
-      id: test3imagedownload
+    - name: test3imagedownloadconfirmation
+      id: test3imagedownloadconfirmation
       uses: classroom-resources/autograding-command-grader@v1
       with:
-        test-name: "Test 3: Image Download"
+        test-name: "Test 3: Image Download Confirmation"
         command: jupyter nbconvert --to notebook --execute ITAI1378 - Assignment 1.ipynb --stdout
         timeout: 60
-        max-score: 9
+        max-score: 18
 
-    - name: test4imageload
-      id: test4imageload
+    - name: test4imageloadconfirmation
+      id: test4imageloadconfirmation
       uses: classroom-resources/autograding-command-grader@v1
       with:
-        test-name: "Test 4: Image Load"
+        test-name: "Test 4: Image Load Confirmation"
         command: jupyter nbconvert --to notebook --execute ITAI1378 - Assignment 1.ipynb --stdout
         timeout: 60
-        max-score: 9
+        max-score: 18
 
     - name: test5imagetypeandshape
       id: test5imagetypeandshape
@@ -61,45 +61,25 @@ jobs:
         test-name: "Test 5: Image Type and Shape"
         command: jupyter nbconvert --to notebook --execute ITAI1378 - Assignment 1.ipynb --stdout
         timeout: 60
-        max-score: 9
+        max-score: 18
 
-    - name: test6imageconversion
-      id: test6imageconversion
+    - name: test6rgbimagedisplay
+      id: test6rgbimagedisplay
       uses: classroom-resources/autograding-command-grader@v1
       with:
-        test-name: "Test 6: Image Conversion"
-        command: python3 -c "import json; json.load(open('ITAI1378 - Assignment 1.ipynb'))"
-        timeout: 60
-        max-score: 9
-
-    - name: test7rgbimagedisplay
-      id: test7rgbimagedisplay
-      uses: classroom-resources/autograding-command-grader@v1
-      with:
-        test-name: "Test 7: RGB Image Display"
+        test-name: "Test 6: RGB Image Display"
         command: jupyter nbconvert --to notebook --execute ITAI1378 - Assignment 1.ipynb --stdout
         timeout: 60
-        max-score: 9
-
-    - name: test8rgbchannelsdisplay
-      id: test8rgbchannelsdisplay
-      uses: classroom-resources/autograding-command-grader@v1
-      with:
-        test-name: "Test 8: RGB Channels Display"
-        command: jupyter nbconvert --to notebook --execute ITAI1378 - Assignment 1.ipynb --stdout
-        timeout: 60
-        max-score: 37
+        max-score: 19
 
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
         TEST1SYNTAXCHECK_RESULTS: "${{ steps.test1syntaxcheck.outputs.result }}"
-        TEST2LIBRARIESIMPORT_RESULTS: "${{ steps.test2librariesimport.outputs.result }}"
-        TEST3IMAGEDOWNLOAD_RESULTS: "${{ steps.test3imagedownload.outputs.result }}"
-        TEST4IMAGELOAD_RESULTS: "${{ steps.test4imageload.outputs.result }}"
+        TEST2LIBRARYIMPORTCONFIRMATION_RESULTS: "${{ steps.test2libraryimportconfirmation.outputs.result }}"
+        TEST3IMAGEDOWNLOADCONFIRMATION_RESULTS: "${{ steps.test3imagedownloadconfirmation.outputs.result }}"
+        TEST4IMAGELOADCONFIRMATION_RESULTS: "${{ steps.test4imageloadconfirmation.outputs.result }}"
         TEST5IMAGETYPEANDSHAPE_RESULTS: "${{ steps.test5imagetypeandshape.outputs.result }}"
-        TEST6IMAGECONVERSION_RESULTS: "${{ steps.test6imageconversion.outputs.result }}"
-        TEST7RGBIMAGEDISPLAY_RESULTS: "${{ steps.test7rgbimagedisplay.outputs.result }}"
-        TEST8RGBCHANNELSDISPLAY_RESULTS: "${{ steps.test8rgbchannelsdisplay.outputs.result }}"
+        TEST6RGBIMAGEDISPLAY_RESULTS: "${{ steps.test6rgbimagedisplay.outputs.result }}"
       with:
-        runners: test1syntaxcheck,test2librariesimport,test3imagedownload,test4imageload,test5imagetypeandshape,test6imageconversion,test7rgbimagedisplay,test8rgbchannelsdisplay
+        runners: test1syntaxcheck,test2libraryimportconfirmation,test3imagedownloadconfirmation,test4imageloadconfirmation,test5imagetypeandshape,test6rgbimagedisplay
